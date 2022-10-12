@@ -1,3 +1,5 @@
+
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -53,29 +55,39 @@
 
                     <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                         <div class="navbar-nav mr-auto">
-                            <a href="index" class="nav-item nav-link active">Home</a>
-                            <a href="product-list" class="nav-item nav-link">Products</a>
+                            <a href="/" class="nav-item nav-link active">Home</a>
+                            <!-- <a href="product-list" class="nav-item nav-link">Products</a>
                             <a href="product-detail" class="nav-item nav-link">Product Detail</a>
                             <a href="cart" class="nav-item nav-link">Cart</a>
                             <a href="checkout" class="nav-item nav-link">Checkout</a>
-                            <a href="my-account" class="nav-item nav-link">My Account</a>
-                            <div class="nav-item dropdown">
+                            <a href="my-account" class="nav-item nav-link">My Account</a> -->
+                        <!--     <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">More Pages</a>
                                 <div class="dropdown-menu">
                                     <a href="wishlist" class="dropdown-item">Wishlist</a>
-                                    <a href="login" class="dropdown-item">Login & Register</a>
+                                    
                                     <a href="contact" class="dropdown-item">Contact Us</a>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="navbar-nav ml-auto">
+                            {% if user.is_authenticated %}
+                                <div class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">{{user.username}}</a>
+                                <div class="dropdown-menu">
+                                    <a href="accounts/logout" class="dropdown-item">Logout</a>
+
+                                </div>
+                            </div>
+                            {% else %}   
                             <div class="nav-item dropdown">
                                 <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">User Account</a>
                                 <div class="dropdown-menu">
-                                    <a href="#" class="dropdown-item">Login</a>
-                                    <a href="#" class="dropdown-item">Register</a>
+                                    <a href="accounts/login" class="dropdown-item">Login</a>
+                                    <a href="{% url 'signup' %}" class="dropdown-item">Register</a>
                                 </div>
                             </div>
+                            {% endif %}
                         </div>
                     </div>
                 </nav>
@@ -114,7 +126,16 @@
                     </div>
                 </div>
             </div>
+
         </div>
+          {% for message in Messages %}
+            <div class="alert {{ message.tags }} alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        {{ message | safe }}
+        </div>
+        {% endfor %}
         <!-- Bottom Bar End -->  
         {% block content %}
         {% endblock %}

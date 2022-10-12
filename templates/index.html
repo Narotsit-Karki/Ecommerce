@@ -11,7 +11,7 @@
                             <ul class="navbar-nav">
                                 {% for category in Categories %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="category/{{category.slug}}"><i class="fa {{category.icon}}"></i>{{category.name}}</a>
+                                    <a class="nav-link" href="/category/{{category.slug}}"><i class="fa {{category.icon}}"></i>{{category.name}}</a>
                                 </li>
                                 {% endfor %}
                             
@@ -238,7 +238,7 @@
                     <div class="col-lg-3">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">{{hot.pname}}</a>
+                                <a href="/product-detail/{{hot.slug}}">{{hot.pname}}</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -304,7 +304,7 @@
                     <div class="col-lg-3">
                         <div class="product-item">
                             <div class="product-title">
-                                <a href="#">{{new.pname}}</a>
+                                <a href="product-detail/{{new.slug}}">{{new.pname}}</a>
                                 <div class="ratting">
                                     <i class="fa fa-star"></i>
                                     <i class="fa fa-star"></i>
@@ -314,7 +314,7 @@
                                 </div>
                             </div>
                             <div class="product-image">
-                                <a href="product-detail.html">
+                                <a href="/product-detail/{{new.slug}}">
                                     <img src="{{new.image.url}}" alt="Product Image">
                                 </a>
                                 <div class="product-action">
@@ -359,7 +359,8 @@
                                 <h2>{{feedback.author}}</h2>
                                 <h3>{{feedback.profession}}</h3>
                                 <div class="ratting">
-                                    {% for _ in feedback.rating %}
+                                    {% for _ in 1|ljust:feedback.rating %}
+                                    
                                     <i class="fa fa-star"></i>
                                     {% endfor %}
                                 </div>

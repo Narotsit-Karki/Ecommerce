@@ -1,0 +1,59 @@
+   {% extends 'base.html' %}
+        {% block content %}
+        {%load static %}        
+        <!-- Breadcrumb Start -->
+      
+        <div class="breadcrumb-wrap">
+            <div class="container-fluid">
+                <ul class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Products</a></li>
+                    <li class="breadcrumb-item active">Login & Register</li>
+                </ul>
+            </div>
+        </div>
+        <!-- Breadcrumb End -->
+          {% for message in Messages %}
+            <center > <font color="red">{{message}}</font></center>
+        {% endfor %}
+        <!-- Login Start -->
+        <div class="login">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+
+                    <form method="POST">    
+                         {% csrf_token %}
+
+                        <div class="register-form">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>User Name</label>
+                                    <input class="form-control" name = 'uname' type="text" placeholder="User Name">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                    <input class="form-control" name = 'email' type="email" placeholder="E-mail">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Password</label>
+                                    <input class="form-control" name = 'password' type="password" placeholder="Password">
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Confirm Password</label>
+                                    <input class="form-control" name = 'c_password' type="password" placeholder="Password">
+                                </div>
+                                <div class="col-md-12">
+                                    <button type = 'Submit' class="btn">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                        </form>
+                    </div>
+                
+              
+                </div>
+            </div>
+        </div>
+        <!-- Login End -->
+       {% endblock %}

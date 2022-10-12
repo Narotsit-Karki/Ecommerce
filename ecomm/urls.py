@@ -21,7 +21,9 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',include('home.urls',))
+    path('',include('home.urls',)),
+    # for inbulit django authentication urls
+    path('accounts/',include('django.contrib.auth.urls'))
     ]
 
 # creating image url
