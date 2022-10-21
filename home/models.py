@@ -125,4 +125,34 @@ class Review(models.Model):
 
 
 
+class Cart(models.Model):
+	user = models.ForeignKey(User,on_delete = models.CASCADE)
+	items = models.ForeignKey(Product , on_delete = models.CASCADE)
+	slug = models.CharField(max_length = 500)
+	quantity = models.IntegerField(default = 1)
+	checkout = models.BooleanField(default = False)
+	total = models.IntegerField(default=0)
+	price = models.IntegerField()
 
+	def __str__(self):
+		return f"< {self.user.username} : {self.checkout} : {self.items.pname} >"
+
+
+class Wishlist(models.Model):
+	user = models.ForeignKey(User,on_delete = models.CASCADE)
+	items = models.ForeignKey(Product , on_delete = models.CASCADE)
+	slug = models.CharField(max_length = 500)
+	price = models.IntegerField()
+
+	def __str__(self):
+		return f"< {self.user.username}  : {self.items.pname} >"
+
+
+class Contact(models.CharField):
+	name = models.CharField(max_length = 300)
+	email = models.EmailField(max_length = 200)
+	subject = models.TextField()
+	message = models.TextField()
+
+	def __str__(self):
+		return f"< {self.name} : {self.email} >"

@@ -18,3 +18,6 @@ admin.site.register(FeedBack)
 
 admin.site.register(Review)
 
+admin.site.register(Cart)
+
+admin.site.register(Wishlist)

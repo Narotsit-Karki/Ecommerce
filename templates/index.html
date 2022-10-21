@@ -11,7 +11,7 @@
                             <ul class="navbar-nav">
                                 {% for category in Categories %}
                                 <li class="nav-item">
-                                    <a class="nav-link" href="/category/{{category.slug}}"><i class="fa {{category.icon}}"></i>{{category.name}}</a>
+                                    <a class="nav-link" href="/category/{{category.slug}}" style="font-size:13px;"><center><i class="fa {{category.icon}}"></i>{{category.name}}</center></a>
                                 </li>
                                 {% endfor %}
                             
@@ -252,7 +252,7 @@
                                     <img src="{{hot.image.url}}" style = "..."alt="Product Image">
                                 </a>
                                 <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="/addtocart/{{hot.slug}}"><i class="fa fa-cart-plus"></i></a>
                                     <a href="#"><i class="fa fa-heart"></i></a>
                                     <a href="#"><i class="fa fa-search"></i></a>
                                 </div>
@@ -263,7 +263,7 @@
                                 {% else %}
                                     <h3><span>$</span>{{hot.price}}</h3>
                                 {% endif %}
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                <a class="btn" href="/addtocart/{{hot.slug}}"><i class="fa fa-shopping-cart"></i>Buy Now</a>
                             </div>
                         </div>
                     </div>
@@ -318,7 +318,7 @@
                                     <img src="{{new.image.url}}" alt="Product Image">
                                 </a>
                                 <div class="product-action">
-                                    <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                    <a href="/addtocart/{{new.slug}}"><i class="fa fa-cart-plus"></i></a>
                                     <a href="#"><i class="fa fa-heart"></i></a>
                                     <a href="#"><i class="fa fa-search"></i></a>
                                 </div>
@@ -326,12 +326,12 @@
                             
                             <div class="product-price">
                         
-                                  {% if hot.discount > 0 %}
+                                  {% if new.discount > 0 %}
                                     <h3><span>$</span>{{new.discount}}</h3>
                                 {% else %}
                                     <h3><span>$</span>{{new.price}}</h3>
                                 {% endif %}
-                                <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                <a class="btn" href="/addtocart/{{new.slug}}"><i class="fa fa-shopping-cart"></i>Buy Now</a>
                             </div>
                            
                             </div>
@@ -360,7 +360,7 @@
                                 <h3>{{feedback.profession}}</h3>
                                 <div class="ratting">
                                     {% for _ in 1|ljust:feedback.rating %}
-                                    
+
                                     <i class="fa fa-star"></i>
                                     {% endfor %}
                                 </div>

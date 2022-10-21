@@ -23,7 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include('home.urls',)),
     # for inbulit django authentication urls
-    path('accounts/',include('django.contrib.auth.urls'))
+    path('accounts/',include('django.contrib.auth.urls')),
+    path('api/',include('home.api_urls')),
     ]
 
 # creating image url

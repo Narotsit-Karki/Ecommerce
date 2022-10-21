@@ -44,7 +44,7 @@
                                         <div class="col-md-4">
                                             <div class="product-price-range">
                                                 <div class="dropdown">
-                                                    <div class="dropdown-toggle" data-toggle="dropdown">Product price range</div>
+                                                    <div class="dropdown-toggle" data-toggle="dropdown">price range</div>
                                                     <div class="dropdown-menu dropdown-menu-right">
                                                         <a href="#" class="dropdown-item">$0 to $50</a>
                                                         <a href="#" class="dropdown-item">$51 to $100</a>
@@ -81,8 +81,8 @@
                                             <img src="{{product.image.url}}" alt="Product Image">
                                         </a>
                                         <div class="product-action">
-                                            <a href="#"><i class="fa fa-cart-plus"></i></a>
-                                            <a href="#"><i class="fa fa-heart"></i></a>
+                                            <a href="/addtocart/{{product.slug}}"><i class="fa fa-cart-plus"></i></a>
+                                            <a href="/addtowishlist/{{product.slug}}"><i class="fa fa-heart"></i></a>
                                             <a href="/product-detail/{{product.slug}}"><i class="fa fa-search"></i></a>
                                         </div>
                                     </div>
@@ -94,7 +94,7 @@
 
                                         <h3><span>$</span>{{product.price}</h3>
                                         {% endif %}
-                                        <a class="btn" href=""><i class="fa fa-shopping-cart"></i>Buy Now</a>
+                                        <a class="btn" href="#"><i class="fa fa-shopping-cart"></i>Buy Now</a>
                                     </div>
                                 </div>
                             </div>
